@@ -1,6 +1,6 @@
 # jusreports GLPI plugin
 
-Add your plugin description here.
+This plugin creates a "total cost" tab on many device types, which summarizes all tickets, problems and changes with costs for that device. It was designed since the application doesn't have an easy way to get this type of information. 
 
 ## Contributing
 
