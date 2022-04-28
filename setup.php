@@ -28,7 +28,8 @@
  * --------------------------------------------------------------------------
  */
 
-define('PLUGIN_JUSREPORTS_VERSION', '1.0.0');
+define('PLUGIN_JUSREPORTS_VERSION', '1.0.1');
+
 
 function plugin_init_jusreports() {
    global $PLUGIN_HOOKS;
@@ -58,7 +59,8 @@ function plugin_version_jusreports() {
       'homepage'       => '',
       'requirements'   => [
          'glpi' => [
-            'min' => '9.5',
+            'min' => '10.0',
+            'max' => '10.1'
          ]
       ]
    ];
