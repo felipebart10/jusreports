@@ -86,7 +86,7 @@ class PluginJusreportsTicket extends CommonDBTM
       }
       if ($number > 0) {
          $id_store = [];
-         while ($data = $iterator->next()) {
+         foreach ($iterator as $data) {
             array_push($id_store, $data["id"]);
             if (array_count_values($id_store)[$data["id"]] < 2) {
                Session::addToNavigateListItems('Ticket', $data["id"]);
@@ -116,7 +116,7 @@ class PluginJusreportsTicket extends CommonDBTM
          ]
       ]);
 
-      while ($data = $iterator->next()) {
+      foreach ($iterator as $data) {
          $cost += TicketCost::computeTotalCost(
             $data["actiontime"],
             $data["cost_time"],
@@ -147,8 +147,7 @@ class PluginJusreportsTicket extends CommonDBTM
             ]
          ]
       ]);
-
-      while ($data = $iterator->next()) {
+      foreach ($iterator as $data) {
          $totalcost += TicketCost::computeTotalCost(
             $data["actiontime"],
             $data["cost_time"],
@@ -156,6 +155,7 @@ class PluginJusreportsTicket extends CommonDBTM
             $data["cost_material"]
          );
       }
+      
       return $totalcost;
    }
 

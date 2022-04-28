@@ -84,10 +84,9 @@ class PluginJusreportsProblem extends CommonDBTM
       if (count($_SESSION["glpiactiveentities"]) > 1) {
          $colspan++;
       }
-
       if ($number > 0) {
          $id_store = [];
-         while ($data = $iterator->next()) {
+         foreach ($iterator as $data) {
             array_push($id_store, $data["id"]);
             if (array_count_values($id_store)[$data["id"]] < 2) {
                Session::addToNavigateListItems('Problem', $data["id"]);
@@ -117,7 +116,7 @@ class PluginJusreportsProblem extends CommonDBTM
          ]
       ]);
 
-      while ($data = $iterator->next()) {
+      foreach ($iterator as $data) {
          $cost += ProblemCost::computeTotalCost(
             $data["actiontime"],
             $data["cost_time"],
@@ -147,9 +146,9 @@ class PluginJusreportsProblem extends CommonDBTM
                'glpi_problemcosts.cost_material' => ['>', 0]
             ]
          ]
-      ]);
+      ]);  
 
-      while ($data = $iterator->next()) {
+      foreach ($iterator as $data) {
          $totalcost += ProblemCost::computeTotalCost(
             $data["actiontime"],
             $data["cost_time"],
